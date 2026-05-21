@@ -26,4 +26,4 @@ jobs:
       - name: 通知スクリプトの実行
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python notify.py
+        run: python .github/workflows/notify.py
