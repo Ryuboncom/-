@@ -3,7 +3,6 @@ name: Garbage Notification Bot
 on:
   schedule:
     # 毎日 21:00 (JST) に実行
-    # ※ UTCで指定するため JSTの21時から9時間引いた 12:00 に設定
     - cron: '0 12 * * *'
   
   workflow_dispatch:
@@ -26,4 +25,5 @@ jobs:
       - name: 通知スクリプトの実行
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: python .github/workflows/notify.py
+        # ★ ここを修正！ `.github/workflows/` を消してルート階層のファイルを指定する
+        run: python notify.py
